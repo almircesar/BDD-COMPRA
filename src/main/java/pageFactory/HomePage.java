@@ -59,6 +59,7 @@ public class HomePage {
 	public void clicaLaptopHome() {
 		laptopHome.click();
 		
+		
 	}
 	public void clicaLogar() {
 		btnLogar.click();	
