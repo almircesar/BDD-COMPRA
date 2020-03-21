@@ -43,8 +43,8 @@ public class Hooks {
 //		Reporter.addScreenCaptureFromPath(destinationPath.toString());
 //	}
 	
-	@After
-	public void AfterSteps() {
-		testContext.getWebDriverManager().closeDriver();
-	}
+//	@After
+//	public void AfterSteps() {
+//		testContext.getWebDriverManager().closeDriver();
+//	}
 }

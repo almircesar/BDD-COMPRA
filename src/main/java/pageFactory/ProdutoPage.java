@@ -1,5 +1,6 @@
 package pageFactory;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,6 +15,8 @@ public class ProdutoPage {
 	WebDriver driver;
 	ProdutoPage produtopage;
 	ConfigFileReader configFileReader;
+	private JavascriptExecutor js;
+	
 
 	public ProdutoPage(WebDriver driver) {
 		this.driver = driver;
@@ -29,6 +32,31 @@ public class ProdutoPage {
 
 	@FindBy(how = How.NAME, using = "save_to_cart")
 	private WebElement carrinhoAdd;
+
+	@FindBy(how = How.ID, using = "checkOutPopUp")
+	private WebElement checkout;
+
+	@FindBy(how = How.ID, using = "next_btn")
+	private WebElement btnNext;
+
+	@FindBy(how = How.ID, using = "pay_now_btn_MasterCredit")
+	private WebElement btnPay;
+
+	@FindBy(how = How.XPATH, using = "//*[@id=\"orderPaymentSuccess\"]/div/div[1]/div/div[3]/label")
+	private WebElement cell;
+	
+	public void waitElementNext() {
+		WebDriverWait wait = new WebDriverWait(driver, 45);
+		wait.until(ExpectedConditions.visibilityOf(btnNext));
+	}
+	public void clicaPay() {
+		btnPay.click();
+		
+	}
+
+	public void clicaNext() {
+		btnNext.click();
+	}
 
 	public void waitElementLaptopHP() {
 		WebDriverWait wait = new WebDriverWait(driver, 15);
@@ -49,4 +77,21 @@ public class ProdutoPage {
 	public void clicaAddCarrinho() {
 		carrinhoAdd.click();
 	}
+
+	public void clicaCheckout() {
+		checkout.click();
+
+	}
+
+	public void waitElementCheckout() {
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.visibilityOf(carrinhoAdd));
+	}
+//	public void rolarTela() {
+//		js.executeScript ("window.scrollBy(0, 1000)");
+//
+//		
+//	}
+	
+	
 }

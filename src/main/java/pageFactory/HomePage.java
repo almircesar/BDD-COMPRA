@@ -1,5 +1,6 @@
 package pageFactory;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -32,16 +33,18 @@ public class HomePage {
 	@FindBy(how = How.XPATH, using="/html/body/login-modal/div/div/div[3]/sec-form/sec-view[2]/div/input")
 	private WebElement passwordLogin;
 	
-	@FindBy(how = How.CLASS_NAME,using="laptopsImg")
-	private WebElement laptopHome;
+	@FindBy(how = How.ID,using="speakersImg")
+	private WebElement speakers;
 	
-	@FindBy(how = How.ID,using="sign_in_btnundefined")
+	@FindBy(how = How.XPATH,using="//*[@id=\"sign_in_btnundefined\"]")
 	private WebElement btnLogar ;
 	
 	@FindBy(how = How.ID,using="menuCart")
 	private WebElement btncarrinho ;
 	
-	public void entraAPP() {
+	
+	
+	public void entraSite() {
 		driver.get(managers.FileReaderManager.getInstance().getConfigReader().getApplicationUrl());
 	}
 	public void clicaBtnUser() {
@@ -56,22 +59,28 @@ public class HomePage {
 		
 		passwordLogin.sendKeys(senha);
 	}
-	public void clicaLaptopHome() {
-		laptopHome.click();
+	public void clicaSpeakers() {
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		executor.executeScript("arguments[0].click();", speakers);
 		
 		
 	}
-	public void clicaLogar() {
-		btnLogar.click();	
+	public void clicaLogar() {	
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		executor.executeScript("arguments[0].click();", btnLogar);
 	}
 	
-	public void waitElementLaptop() {
-		WebDriverWait wait = new WebDriverWait(driver, 15);
-		wait.until(ExpectedConditions.visibilityOf(laptopHome));
+	public void waitElementspeakers() {
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		wait.until(ExpectedConditions.visibilityOf(speakers));
 	}
 	public void waitElementcart() {
-		WebDriverWait wait = new WebDriverWait(driver, 15);
+		WebDriverWait wait = new WebDriverWait(driver, 40);
 		wait.until(ExpectedConditions.visibilityOf(btncarrinho));
 	}
+	public void waitElementLogin() {
+		WebDriverWait wait = new WebDriverWait(driver, 50);
+		wait.until(ExpectedConditions.visibilityOf(btnLogar));
 
+}
 }

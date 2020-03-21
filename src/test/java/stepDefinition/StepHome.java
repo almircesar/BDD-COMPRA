@@ -24,9 +24,10 @@ public class StepHome {
 
 	@Dado("^que estou no site advantage online shopping$")
 	public void que_estou_no_site_advantage_online_shopping() throws InterruptedException {
-		homePage.entraAPP();
-		homePage.waitElementLaptop();
+		homePage.entraSite();
+		homePage.waitElementcart();
 		homePage.clicaBtnUser();
+		
 	
 
 	}
@@ -35,9 +36,10 @@ public class StepHome {
 	public void o_usuario_estiver_logado() throws InterruptedException {
 		homePage.escreveUsername("almir");
 		homePage.escreverSenha("Almir123");
+		homePage.waitElementLogin();
 		homePage.clicaLogar();
 		homePage.waitElementcart();
-		homePage.clicaLaptopHome();
+		homePage.clicaSpeakers();
 		
 	}
 

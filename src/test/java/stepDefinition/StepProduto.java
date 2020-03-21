@@ -18,15 +18,22 @@ public class StepProduto {
 
 	}
 	
-//	@Quando("usuario escolhe item desejado$")
-//	public void usuario_escolhe_item_desejado() throws InterruptedException {
-//		
-//		produtopage.waitElementLaptopHP();
-//		produtopage.clicanotebook();
-//		produtopage.waitElementColocarCarrinho();
-//		produtopage.clicaAddCarrinho();
-//		Thread.sleep(2000);
-//		
-//	}
+	@Quando("usuario escolhe item desejado$")
+	public void usuario_escolhe_item_desejado() throws InterruptedException {
+		
+		produtopage.waitElementLaptopHP();
+		produtopage.clicanotebook();
+		produtopage.waitElementColocarCarrinho();
+		produtopage.clicaAddCarrinho();
+		produtopage.waitElementCheckout();
+		produtopage.clicaCheckout();
+		produtopage.waitElementNext();
+		produtopage.clicaNext();
+		produtopage.clicaPay();
+//		produtopage.rolarTela();
+		
+		
+		
+	}
 
 }
