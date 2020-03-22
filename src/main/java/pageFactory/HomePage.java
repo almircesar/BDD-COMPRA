@@ -12,17 +12,18 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import dataProviders.ConfigFileReader;
 
 public class HomePage {
-	//login almir senha almir123
-	
-	 WebDriver driver;
-	 HomePage homepage;
-	 ConfigFileReader configFileReader;
-		
+	// login almir senha almir123
+
+	WebDriver driver;
+	HomePage homepage;
+	ConfigFileReader configFileReader;
+
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
-		configFileReader= new ConfigFileReader();
+		configFileReader = new ConfigFileReader();
 	}
+
 	
 	@FindBy(how = How.ID,using="menuUser")
 	private WebElement btnUser;
@@ -78,9 +79,9 @@ public class HomePage {
 		WebDriverWait wait = new WebDriverWait(driver, 40);
 		wait.until(ExpectedConditions.visibilityOf(btncarrinho));
 	}
-	public void waitElementLogin() {
-		WebDriverWait wait = new WebDriverWait(driver, 50);
+	public void waitElementbtnLogar() {
+		WebDriverWait wait = new WebDriverWait(driver, 60);
 		wait.until(ExpectedConditions.visibilityOf(btnLogar));
+	}
 
-}
 }

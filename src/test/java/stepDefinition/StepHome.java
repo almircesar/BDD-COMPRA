@@ -29,18 +29,17 @@ public class StepHome {
 		homePage.clicaBtnUser();
 		
 	
-
 	}
 
 	@Quando("^o usuario estiver logado$")
 	public void o_usuario_estiver_logado() throws InterruptedException {
+	
+		homePage.waitElementbtnLogar();
 		homePage.escreveUsername("almir");
 		homePage.escreverSenha("Almir123");
-		homePage.waitElementLogin();
 		homePage.clicaLogar();
 		homePage.waitElementcart();
 		homePage.clicaSpeakers();
-		
 	}
 
 }

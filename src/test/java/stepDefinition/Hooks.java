@@ -7,12 +7,12 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import managers.WebDriverManager;
 
-
 public class Hooks {
 
 	WebDriver driver;
 	TestContext testContext;
 	WebDriverManager manager;
+	
 
 	public Hooks(TestContext context) {
 		testContext = context;
@@ -25,8 +25,8 @@ public class Hooks {
 		manager.getDriver();
 		
 	}
-
-//	@After(order = 1)
+//
+//	@After(order = 0)
 //	public void afterScenario(Scenario scenario) throws IOException, InterruptedException {
 //		Wait.waitForPageLoad(driver);
 //		Wait.untilJqueryIsDone(driver);
@@ -42,9 +42,9 @@ public class Hooks {
 //
 //		Reporter.addScreenCaptureFromPath(destinationPath.toString());
 //	}
+	@After
 	
-//	@After
-//	public void AfterSteps() {
-//		testContext.getWebDriverManager().closeDriver();
-//	}
+	public void AfterSteps() {
+		manager.closeDriver();
+	}
 }

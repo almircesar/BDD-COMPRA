@@ -1,6 +1,5 @@
 package pageFactory;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,8 +14,6 @@ public class ProdutoPage {
 	WebDriver driver;
 	ProdutoPage produtopage;
 	ConfigFileReader configFileReader;
-	private JavascriptExecutor js;
-	
 
 	public ProdutoPage(WebDriver driver) {
 		this.driver = driver;
@@ -45,28 +42,39 @@ public class ProdutoPage {
 	@FindBy(how = How.XPATH, using = "//*[@id=\"orderPaymentSuccess\"]/div/div[1]/div/div[3]/label")
 	private WebElement cell;
 	
+	@FindBy(how = How.XPATH,using = "//*[@id=\"orderPaymentSuccess\"]/h2/span")
+	public WebElement textoEsperado;
+
+	@FindBy(how = How.XPATH,using = "//*[@id=\"productProperties\"]/div[2]/e-sec-plus-minus/div/div[3]")
+	private WebElement AdicionarMaisUnidades;
+	
+	@FindBy(how = How.XPATH,using = "//*[@id=\"userCart\"]/div[2]/label[2]/span")
+	public WebElement preco;
+	
 	public void waitElementNext() {
 		WebDriverWait wait = new WebDriverWait(driver, 45);
 		wait.until(ExpectedConditions.visibilityOf(btnNext));
 	}
+
 	public void clicaPay() {
 		btnPay.click();
-		
+
 	}
 
 	public void clicaNext() {
 		btnNext.click();
 	}
 
-	public void waitElementLaptopHP() {
+	public void waitElementSpeakers() {
 		WebDriverWait wait = new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.visibilityOf(hpPavilion));
 	}
 
-	public void clicanotebook() {
+	public void clicaNoSpeakers() {
 		hpPavilion.click();
 
 	}
+	
 
 	public void waitElementColocarCarrinho() {
 		WebDriverWait wait = new WebDriverWait(driver, 15);
@@ -76,6 +84,20 @@ public class ProdutoPage {
 
 	public void clicaAddCarrinho() {
 		carrinhoAdd.click();
+	}
+	public void AdicinaOnzeItens() {
+		AdicionarMaisUnidades.click();
+		AdicionarMaisUnidades.click();
+		AdicionarMaisUnidades.click();
+		AdicionarMaisUnidades.click();
+		AdicionarMaisUnidades.click();
+		AdicionarMaisUnidades.click();
+		AdicionarMaisUnidades.click();
+		AdicionarMaisUnidades.click();
+		AdicionarMaisUnidades.click();
+		AdicionarMaisUnidades.click();
+		AdicionarMaisUnidades.click();
+		
 	}
 
 	public void clicaCheckout() {
@@ -87,11 +109,5 @@ public class ProdutoPage {
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.visibilityOf(carrinhoAdd));
 	}
-//	public void rolarTela() {
-//		js.executeScript ("window.scrollBy(0, 1000)");
-//
-//		
-//	}
-	
-	
+
 }
