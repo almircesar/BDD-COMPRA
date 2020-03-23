@@ -18,6 +18,7 @@ public class TestRunner {
 		Reporter.loadXMLConfig(
 				new File("C:\\PROJETO-ALMIR\\Projeto\\Configs\\extent-config.xml"));
 
+		
 	}
 
 }
