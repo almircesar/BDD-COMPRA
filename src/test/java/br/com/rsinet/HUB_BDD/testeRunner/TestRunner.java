@@ -16,7 +16,7 @@ public class TestRunner {
 
 	public static void writeExtentReport() {
 		Reporter.loadXMLConfig(
-				new File("C:\\Users\\almir.damiao\\Desktop\\PROJETO-ALMIR\\Projeto\\Configs\\extent-config.xml"));
+				new File("C:\\PROJETO-ALMIR\\Projeto\\Configs\\extent-config.xml"));
 
 	}
 
